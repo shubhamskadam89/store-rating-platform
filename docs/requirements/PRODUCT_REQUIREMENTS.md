@@ -5,9 +5,9 @@
 | Field            | Value                                                                                    |
 | :--------------- | :--------------------------------------------------------------------------------------- |
 | **Title**        | Product Requirements — Store Rating Platform                                             |
-| **Status**       | Draft                                                                                    |
+| **Status**       | Approved                                                                                 |
 | **Source**       | FullStack Intern Coding Challenge, V1.1 — the authoritative specification for this build |
-| **Version**      | 0.1.0                                                                                    |
+| **Version**      | 1.0.0                                                                                    |
 | **Last Updated** | 2026-09-01                                                                               |
 | **Owner**        | Project Maintainer                                                                       |
 
@@ -613,8 +613,8 @@ forbidden by it, and `SCOPE.md` must say which of the two it is in each case.
 | Step     | Status     |
 | :------- | :--------- |
 | Drafted  | 2026-09-01 |
-| Reviewed | Pending    |
-| Approved | Pending    |
+| Reviewed | 2026-09-01 |
+| Approved | 2026-09-01 |
 
 No document downstream of this one — `SCOPE.md`, `DATABASE_DESIGN.md`,
 `API_SPECIFICATION.md`, or any ADR — should be drafted until this document is approved.
