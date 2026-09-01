@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { validateEnv } from './config/env.validation';
 import { PrismaModule } from './database/prisma.module';
 import { HealthController } from './health.controller';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -11,8 +12,9 @@ import { HealthController } from './health.controller';
       validate: validateEnv,
     }),
     PrismaModule,
-    // Feature modules (auth, users, stores, ratings) are added per GitHub issue.
+    AuthModule,
   ],
   controllers: [HealthController],
 })
 export class AppModule {}
+
