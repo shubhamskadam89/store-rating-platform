@@ -9,15 +9,15 @@ Closes #
 <!-- Bulleted list of specific changes made in this PR. -->
 - 
 
-## Documentation Updated
-<!-- List which files in docs/ were updated or created. -->
+## Documentation Updated (Optional)
+<!-- Check applicable boxes if documentation in docs/ was updated or created. -->
 - [ ] Requirements (`docs/requirements/`)
 - [ ] Architecture (`docs/architecture/`)
 - [ ] Database (`docs/database/`)
 - [ ] API (`docs/api/`)
 - [ ] ADRs (`docs/decisions/`)
 - [ ] Development (`docs/development/`)
-- [ ] N/A (Explain why: )
+- [x] N/A (No documentation changes required for this PR)
 
 ## Testing Performed
 <!-- Describe the manual and automated tests executed to verify these changes. -->
@@ -32,6 +32,6 @@ Closes #
 - [ ] TypeScript strict mode passes with 0 errors
 - [ ] Tests added or updated
 - [ ] Tests pass
-- [ ] Documentation updated
+- [ ] Documentation updated (if applicable)
 - [ ] No secrets committed
 - [ ] Code follows project conventions
