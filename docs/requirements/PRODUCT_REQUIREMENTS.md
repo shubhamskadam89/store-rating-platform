@@ -126,10 +126,12 @@ this document should be read as claiming otherwise. Their rationale belongs in
 | **Normal User**          | A member of the public who rates stores.                                                          | Sign up; log in; update password; view all registered stores; search stores by name and by address; submit a rating; modify a submitted rating; log out. |
 | **Store Owner**          | Owns a store registered on the platform and monitors its ratings.                                 | Log in; update password; view the users who rated their store; view their store's average rating; log out.                                               |
 
-No role holds a permission beyond those listed. In particular, the specification grants
-rating submission to the Normal User only, and does not state whether a Store Owner or a
-System Administrator may rate stores — see **OQ-03** in
-[Section 10](#10-open-questions-and-ambiguities). That silence is recorded, not resolved.
+This document records only the permissions explicitly required or necessarily derived from
+the specification. Whether additional capabilities are intentionally excluded will be
+determined in `SCOPE.md`. For example, the specification grants rating submission to the
+Normal User and does not state whether a Store Owner or a System Administrator may also
+rate stores — see **OQ-03** in [Section 10](#10-open-questions-and-ambiguities). That
+silence is recorded here, not resolved.
 
 ---
 
@@ -137,17 +139,17 @@ System Administrator may rate stores — see **OQ-03** in
 
 ### 6.1 Authentication and account access (`FR-AUTH-*`)
 
-| ID              | Requirement                                                                                                     | Source                                                                                                                               |
-| :-------------- | :-------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- |
-| **FR-AUTH-001** | The system shall provide a single login system used by all users, regardless of role.                           | Specification — "A single login system must be used for all users."                                                                  |
-| **FR-AUTH-002** | The functionality available to an authenticated user shall be determined by the role assigned to their account. | Specification — "Users have different functionality based on their assigned role."                                                   |
-| **FR-AUTH-003** | A visitor shall be able to register as a Normal User through a registration page.                               | Specification — "Normal Users must be able to register through a registration page."                                                 |
-| **FR-AUTH-004** | A registered user of any role shall be able to log in.                                                          | Specification — log-in is stated for the Normal User and the Store Owner, and is entailed by the single login system in FR-AUTH-001. |
-| **FR-AUTH-005** | A System Administrator shall be able to log out.                                                                | Specification — "The administrator can log out."                                                                                     |
-| **FR-AUTH-006** | A Normal User shall be able to log out.                                                                         | Specification — "Can log out."                                                                                                       |
-| **FR-AUTH-007** | A Store Owner shall be able to log out.                                                                         | Specification — "Can log out."                                                                                                       |
-| **FR-AUTH-008** | A Normal User shall be able to update their password after logging in.                                          | Specification — "Can update their password after logging in."                                                                        |
-| **FR-AUTH-009** | A Store Owner shall be able to update their password after logging in.                                          | Specification — "Can update their password after logging in."                                                                        |
+| ID              | Requirement                                                                                                     | Source                                                                                                                                                                                            |
+| :-------------- | :-------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **FR-AUTH-001** | The system shall provide a single login system used by all users, regardless of role.                           | Specification — "A single login system must be used for all users."                                                                                                                               |
+| **FR-AUTH-002** | The functionality available to an authenticated user shall be determined by the role assigned to their account. | Specification — "Users have different functionality based on their assigned role."                                                                                                                |
+| **FR-AUTH-003** | A visitor shall be able to register as a Normal User through a registration page.                               | Specification — "Normal Users must be able to register through a registration page."                                                                                                              |
+| **FR-AUTH-004** | A registered user of any role shall be able to log in.                                                          | Derived — Normal User and Store Owner login are explicit; System Administrator authentication is implied by the requirement for a single login system and administrator post-login functionality. |
+| **FR-AUTH-005** | A System Administrator shall be able to log out.                                                                | Specification — "The administrator can log out."                                                                                                                                                  |
+| **FR-AUTH-006** | A Normal User shall be able to log out.                                                                         | Specification — "Can log out."                                                                                                                                                                    |
+| **FR-AUTH-007** | A Store Owner shall be able to log out.                                                                         | Specification — "Can log out."                                                                                                                                                                    |
+| **FR-AUTH-008** | A Normal User shall be able to update their password after logging in.                                          | Specification — "Can update their password after logging in."                                                                                                                                     |
+| **FR-AUTH-009** | A Store Owner shall be able to update their password after logging in.                                          | Specification — "Can update their password after logging in."                                                                                                                                     |
 
 > **Note on the System Administrator's password.** The specification grants password update
 > to the Normal User and the Store Owner explicitly, and is silent for the System
@@ -476,8 +478,8 @@ _Why it matters._ VR-001 through VR-003 are stated without naming an entity, in 
 specification where both users and stores have a name and an address. Applying a 20
 character minimum to store names is a materially different product than not applying it.
 
-_Decision status._ **Open.** Blocks the store creation contract and the validation section
-of `SYSTEM_DESIGN.md`.
+_Decision status._ **Open.** Must be resolved before finalizing store-field validation and
+the related API and UI validation behavior. It does not block the data model as a whole.
 
 ---
 
