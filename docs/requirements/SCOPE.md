@@ -147,14 +147,13 @@ functionality are in scope regardless of how that question resolves.
 
 ### 4.8 Validation
 
-All nine validation requirements are in scope and enforced: Name length bounds (VR-001,
-VR-002), Address maximum length (VR-003), password composition and length (VR-004 through
-VR-007), email format (VR-008), and rating range (VR-009).
+All nine validation requirements are in scope: Name length bounds (VR-001, VR-002),
+Address maximum length (VR-003), password composition and length (VR-004 through VR-007),
+email format (VR-008), and rating range (VR-009).
 
-Validation is enforced server-side for every rule. Client-side validation is additionally
-in scope as a usability measure under NFR-001, and is never the only enforcement point.
-The entities each rule applies to, and the definition of a special character, are OQ-13
-and OQ-14.
+The enforcement approach, including the respective responsibilities of frontend and backend
+validation, will be defined during system and API design. The entities each rule applies
+to, and the definition of a special character, are OQ-13 and OQ-14.
 
 ### 4.9 Listing, filtering and sorting
 
@@ -181,7 +180,7 @@ absent from the requirements and delivering it would add cost without serving th
 | :--------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------- |
 | Password reset / forgot-password flows               | Password update by an authenticated user (FR-AUTH-008, 009) is in scope; recovery for a user who cannot log in is not. |
 | Email verification of new accounts                   | Registration completes without an email round trip.                                                                    |
-| Third-party, social or single sign-on authentication | The single login system of FR-AUTH-001 is credential-based.                                                            |
+| Third-party, social or single sign-on authentication | Not included in the project delivery scope.                                                                            |
 | Multi-factor authentication                          | —                                                                                                                      |
 | Self-service account deletion or deactivation        | —                                                                                                                      |
 
@@ -225,7 +224,7 @@ absent from the requirements and delivering it would add cost without serving th
 | Recommendation, ranking or personalisation features       | —                                                                    |
 | Machine learning or AI capabilities                       | —                                                                    |
 | Native or hybrid mobile applications                      | The deliverable is a web application.                                |
-| Internationalisation and localisation                     | A single language and locale.                                        |
+| Internationalisation and localisation                     | —                                                                    |
 | Multi-tenancy or organisation-level separation            | —                                                                    |
 | A public API for third-party consumers                    | The API serves this project's own frontend.                          |
 
@@ -299,13 +298,14 @@ authentication, role-based authorisation, the validation rules in Section 4.8, a
 submission and modification. Exhaustive coverage of every component and view is explicitly
 not a delivery commitment. The concrete test plan belongs in `DEVELOPMENT_WORKFLOW.md`.
 
-### 7.4 Decision required
+### 7.4 Hosted deployment
 
-**Is a hosted, publicly reachable deployment a deliverable?** The specification does not
-require one. It is a delivery-boundary question rather than a product-scope question, and it
-is left open here for explicit decision. If accepted, Section 7.1 gains a deployment
-deliverable and Section 7.2 loses nothing; if declined, the containerised local environment
-is the sole runtime deliverable.
+**Optional; not required for product completion.** The specification requires a working web
+application, not a hosted one. The required runtime deliverable is the containerised local
+environment, reachable from a clean clone by following the README.
+
+A public deployment, if it happens, is additive: it does not gate product completion as
+defined in Section 8, and its absence is not a defect.
 
 ---
 
@@ -347,8 +347,10 @@ The product is complete when all of the following hold.
 **Boundaries**
 
 - No capability listed in Section 5 has been built.
-- Every deferred decision in Section 6 has been resolved by an approved document, and the
-  implementation matches that resolution.
+- Every deferred decision in Section 6 that materially affects the implemented product has
+  been resolved in the appropriate approved document, and the implementation matches that
+  resolution. A question that became irrelevant, or that required no implementation
+  decision, may remain open.
 
 **Delivery**
 
