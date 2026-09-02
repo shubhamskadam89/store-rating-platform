@@ -1,0 +1,20 @@
+$kind: http-request
+method: POST
+url: '{{baseUrl}}/stores'
+order: 1000
+description: |-
+  Allows a SYSTEM_ADMIN to register a new store.
+  - Name: Required string
+  - Email: Valid unique email
+  - Address: Required string (max 400 characters)
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Downtown Supermarket",
+      "email": "store@example.com",
+      "address": "789 Broadway Ave, New York, NY 10003"
+    }
