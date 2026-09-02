@@ -1,0 +1,22 @@
+$kind: http-request
+name: Create User (Admin / Owner / Normal)
+method: POST
+url: '{{baseUrl}}/users'
+order: 1000
+description: |-
+  Allows a SYSTEM_ADMIN to create users with specific roles: `SYSTEM_ADMIN`, `STORE_OWNER`, or `NORMAL_USER`.
+  - Name: 20-60 characters
+  - Password: 8-16 characters, 1 uppercase, 1 special character
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Alexander Hamilton Washington",
+      "email": "owner@example.com",
+      "password": "Password@123",
+      "address": "456 Market Street, San Francisco, CA 94105",
+      "role": "STORE_OWNER"
+    }

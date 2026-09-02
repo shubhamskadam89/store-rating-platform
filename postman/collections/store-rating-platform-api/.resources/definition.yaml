@@ -1,0 +1,10 @@
+$kind: collection
+name: Store Rating Platform API
+description: API collection for Store Rating Platform with authentication, user management, and store management.
+variables:
+  baseUrl: http://localhost:3000/api
+  token: ""
+auth:
+  type: bearer
+  credentials:
+    token: "{{token}}"

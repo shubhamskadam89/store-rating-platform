@@ -1,0 +1,23 @@
+$kind: http-request
+method: POST
+url: '{{baseUrl}}/auth/register'
+order: 1000
+description: |-
+  Registers a new normal user.
+  - Name: 20-60 characters
+  - Password: 8-16 characters
+  - Address: max 400 characters
+auth:
+  type: noauth
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Christopher Columbus Smith",
+      "email": "user@example.com",
+      "password": "Password@123",
+      "address": "123 Main Street, Suite 400, New York, NY 10001"
+    }
