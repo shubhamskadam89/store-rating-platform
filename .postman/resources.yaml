@@ -1,0 +1,7 @@
+# Use this workspace to collaborate
+workspace:
+  id: ebe6ea52-a558-4686-97e5-e4b15ce13cc3
+
+localResources:
+  collections:
+    - ../store-rating-platform.postman_collection.json
