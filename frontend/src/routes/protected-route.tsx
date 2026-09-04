@@ -1,5 +1,5 @@
 import { useAuth } from "../features/auth/auth-context";
-import { Navigate, Outlet } from "react-router";
+import { Navigate, Outlet } from "react-router-dom";
 
 export function ProtectedRoute(): React.JSX.Element {
     const { isAuthenticated, isLoading } = useAuth();
