@@ -1,4 +1,4 @@
-import { Body, Controller, Param, ParseUUIDPipe, Post, Put, Req, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, ParseUUIDPipe, Post, Put, Req, UseGuards } from '@nestjs/common';
 import { Role } from '@prisma/client';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { Roles } from '../auth/roles.decorator';
@@ -11,6 +11,11 @@ import { RatingsService } from './ratings.service';
 @UseGuards(JwtAuthGuard, RolesGuard)
 export class RatingsController {
   constructor(private readonly ratingsService: RatingsService) {}
+
+  @Get()
+  findByStore(@Param('storeId', ParseUUIDPipe) storeId: string) {
+    return this.ratingsService.findByStore(storeId);
+  }
 
   @Post()
   @Roles(Role.NORMAL_USER)

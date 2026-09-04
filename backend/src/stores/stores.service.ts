@@ -75,6 +75,15 @@ export class StoresService {
           select: {
             value: true,
             userId: true,
+            createdAt: true,
+            user: {
+              select: {
+                name: true,
+              },
+            },
+          },
+          orderBy: {
+            createdAt: 'desc',
           },
         },
       },
@@ -90,12 +99,20 @@ export class StoresService {
 
       const myRating = store.ratings.find((rating) => rating.userId === userId)?.value ?? null;
 
+      const recentRatings = store.ratings.slice(0, 3).map((rating) => ({
+        userId: rating.userId,
+        userName: rating.user.name,
+        value: rating.value,
+      }));
+
       return {
         id: store.id,
         name: store.name,
         address: store.address,
         overallRating: overallRating,
+        ratingCount: store.ratings.length,
         myRating: myRating,
+        recentRatings,
       };
     });
   }

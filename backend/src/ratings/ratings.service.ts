@@ -84,4 +84,40 @@ export class RatingsService {
       },
     });
   }
+
+  async findByStore(storeId: string) {
+    const store = await this.prisma.store.findUnique({
+      where: { id: storeId },
+    });
+
+    if (!store) {
+      throw new NotFoundException('Store not found');
+    }
+
+    const ratings = await this.prisma.rating.findMany({
+      where: { storeId },
+      select: {
+        id: true,
+        value: true,
+        userId: true,
+        createdAt: true,
+        user: {
+          select: {
+            name: true,
+          },
+        },
+      },
+      orderBy: {
+        createdAt: 'desc',
+      },
+    });
+
+    return ratings.map((r) => ({
+      id: r.id,
+      userId: r.userId,
+      userName: r.user.name,
+      value: r.value,
+      createdAt: r.createdAt,
+    }));
+  }
 }
