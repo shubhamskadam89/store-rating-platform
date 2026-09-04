@@ -1,0 +1,12 @@
+$kind: http-request
+method: GET
+url: '{{baseUrl}}/stores'
+order: 1000
+description: |-
+  Retrieves a list of public stores. Open to authenticated normal users and above.
+auth:
+  type: bearer
+  bearer:
+    - key: token
+      value: '{{token}}'
+headers: []

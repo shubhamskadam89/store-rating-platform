@@ -1,4 +1,4 @@
-# Store Rating Platform
+# What They Say - Store Rating Platform
 
 A full-stack web platform enabling System Administrators to manage users and stores, Normal Users to browse and submit/modify store ratings, and Store Owners to view ratings and analytics for their stores.
 
@@ -6,33 +6,51 @@ A full-stack web platform enabling System Administrators to manage users and sto
 
 ## Current Status
 
-> **Phase**: Repository Initialization & Technical Design  
-> **Status**: In Progress (Foundational Setup)
+> **Status**: Completed  
+> **Phase**: Deployment & Maintenance
 
-The repository is in the **foundation and technical design phase**. Infrastructure is in place: TypeScript strict mode, linting and formatting, Docker Compose, CI, global error handling, response conventions, environment validation, and a health endpoint.\n\nNo domain models, business logic, or database schema exist yet. Those are derived from the specifications in [`docs/`](./docs/README.md) once each is approved, and delivered through dedicated GitHub issues.
+The repository is fully implemented. It features a complete authentication system, a unified dashboard experience with role-based access control, store management, and a modernized UI with stock photography and cohesive branding.
 
 ---
 
-## Planned Technology Stack
+## Technology Stack
 
 ### Backend
-
-- **Runtime & Language**: Node.js (Pinned via `.nvmrc` to v22), TypeScript (Strict Mode)
+- **Runtime & Language**: Node.js (v22), TypeScript (Strict Mode)
 - **Framework**: NestJS
 - **ORM & Migrations**: Prisma
-- **Testing**: Jest (Unit & E2E)
+- **Database**: PostgreSQL 16
+- **Testing**: Jest
 
 ### Frontend
-
-- **Runtime & Tooling**: React, TypeScript (Strict Mode), Vite
+- **Runtime & Tooling**: React, TypeScript, Vite
+- **Routing**: React Router
 - **Testing**: Vitest / React Testing Library
-- **Styling**: Modern Vanilla CSS (no premature CSS frameworks)
+- **Styling**: Modern Vanilla CSS
 
-### Database & Infrastructure
+---
 
-- **Database**: PostgreSQL 16
-- **Containerization**: Docker & Docker Compose (Development setup)
-- **CI/CD**: GitHub Actions
+## Seed Data & Test Accounts
+
+The database can be repopulated with authentic sample data by running `npm run seed` in the `backend` directory. This creates **4 authentic users** and **4 distinct stores**, allowing reviewers to easily log in and test all roles.
+
+### User Credentials & Passwords
+
+| Role | Full Name | Email Address | Password |
+| :--- | :--- | :--- | :--- |
+| **System Admin** | Alexander William Hayes | `admin@whattheysay.com` | `Admin@2026!` |
+| **Store Owner** | Marcus Aurelius Bennett | `owner@apexfresh.com` | `Owner@2026!` |
+| **Normal User 1** | Sophia Elena Rodriguez | `sophia.rodriguez@example.com` | `User1@2026!` |
+| **Normal User 2** | Jonathan David Fletcher | `jonathan.fletcher@example.com` | `User2@2026!` |
+
+### Seeded Stores
+
+| Category | Store Name | Assigned Owner | Initial Ratings |
+| :--- | :--- | :--- | :--- |
+| **Supermarket / Grocery** | Apex Fresh Supermarket | Marcus Aurelius Bennett (`owner@apexfresh.com`) | 4.5 ★ (2 ratings) |
+| **Cafe & Bakery** | The Artisan Bakery & Cafe | *Unassigned* (ready to assign in Admin) | 4.5 ★ (2 ratings) |
+| **Boutique & Fashion** | Luxe Horizon Boutique | *Unassigned* (ready to assign in Admin) | 4.0 ★ (1 rating) |
+| **Electronics & Tech** | NovaTech Electronics & Gadgets | *Unassigned* (ready to assign in Admin) | 5.0 ★ (1 rating) |
 
 ---
 
@@ -41,132 +59,55 @@ The repository is in the **foundation and technical design phase**. Infrastructu
 ```text
 store-rating-platform/
 │
-├── backend/                  # NestJS backend application
-│   ├── prisma/               # Database schema & migrations
-│   ├── src/
-│   │   ├── common/           # Cross-cutting utilities, decorators, guards, filters
-│   │   ├── config/           # Environment and runtime configurations
-│   │   └── database/         # Database module and Prisma service
-│   ├── test/                 # Integration and E2E test suites
-│   ├── Dockerfile            # Development Dockerfile for backend
-│   ├── .env.example          # Environment variable template for backend
-│   ├── package.json
-│   ├── tsconfig.json
-│   └── README.md
-│
-├── frontend/                 # Vite + React + TypeScript frontend application
-│   ├── public/               # Static assets
-│   ├── src/
-│   │   ├── api/              # API clients and HTTP services
-│   │   ├── components/       # Reusable UI component library
-│   │   │   ├── common/       # Buttons, badges, modals, typography
-│   │   │   ├── forms/        # Input fields, validation wrappers
-│   │   │   ├── layout/       # Headers, footers, containers, sidebars
-│   │   │   └── tables/       # Data table components
-│   │   ├── features/         # Feature-specific modules
-│   │   ├── hooks/            # Custom React hooks
-│   │   ├── pages/            # Page-level view components
-│   │   ├── routes/           # Routing configuration and protected route wrappers
-│   │   ├── types/            # Global TypeScript types and domain interfaces
-│   │   ├── utils/            # Helper functions and formatters
-│   │   ├── App.tsx           # Minimal root component shell
-│   │   └── main.tsx          # Frontend entry point
-│   ├── Dockerfile            # Development Dockerfile for frontend
-│   ├── .env.example          # Environment variable template for frontend
-│   ├── package.json
-│   ├── tsconfig.json
-│   └── README.md
-│
-├── docs/                     # Documentation-first design & specifications
-│   ├── requirements/         # Product, functional, and non-functional requirements
-│   ├── architecture/         # System, backend, frontend, and security architecture
-│   ├── database/             # ER diagrams, schemas, constraints, and migration strategies
-│   ├── api/                  # API contracts, conventions, errors, and auth rules
-│   ├── decisions/            # Architecture Decision Records (ADRs)
-│   ├── development/          # Workflow, branching, PR standards, Definition of Done
-│   └── README.md             # Documentation structure guide
-│
-├── .github/                  # GitHub workflows and issue/PR templates
-│   ├── ISSUE_TEMPLATE/       # Feature, bug, and technical task templates
-│   ├── workflows/            # GitHub Actions CI pipelines
-│   └── pull_request_template.md
-│
-├── .editorconfig             # Consistent editor indentation and newline rules
-├── .env.example              # Root environment template (database configuration)
-├── .gitignore                # Git ignore rules with explicit exception for .env.example
-├── .nvmrc                    # Node.js version pin (22)
+├── backend/                  # NestJS API, Prisma Schema, Seeds
+├── frontend/                 # Vite + React App, UI Components
+├── docs/                     # Technical specifications & ADRs
+├── .github/                  # CI workflows
 ├── docker-compose.yml        # Development multi-container orchestration
-├── CONTRIBUTING.md           # Engineering guidelines, branching strategy, commit rules
-└── README.md                 # Project root documentation (this file)
+└── README.md                 # Project root documentation
 ```
 
 ---
 
-## Documentation
+## Getting Started (Local Development)
 
-This project follows a **documentation-first engineering process**:
+**Prerequisites**: Node.js 22.x, npm >= 10, Docker & Docker Compose.
 
-```text
-Requirements
-     ↓
-Architecture
-     ↓
-Database Design
-     ↓
-API Contracts
-     ↓
-Architecture Decision Records (ADRs)
-     ↓
-GitHub Issues
-     ↓
-Implementation
-     ↓
-Testing
-```
+1. **Start the Database**:
+   ```bash
+   cp .env.example .env
+   cp backend/.env.example backend/.env
+   cp frontend/.env.example frontend/.env
+   docker compose up -d postgres
+   ```
 
-All design documents reside in the [`docs/`](./docs/README.md) directory:
+2. **Run the Backend (API)**:
+   ```bash
+   cd backend
+   npm install
+   npx prisma db push
+   npm run seed
+   npm run start:dev
+   ```
+   *The API will be available at http://localhost:3000/api*
 
-- [docs/requirements/](./docs/requirements/README.md)
-- [docs/architecture/](./docs/architecture/README.md)
-- [docs/database/](./docs/database/README.md)
-- [docs/api/](./docs/api/README.md)
-- [docs/decisions/](./docs/decisions/README.md)
-- [docs/development/](./docs/development/README.md)
+3. **Run the Frontend (UI)**:
+   ```bash
+   cd frontend
+   npm install
+   npm run dev
+   ```
+   *The Frontend will be available at http://localhost:5173*
 
 ---
 
-## Getting Started
+## Deployment
 
-**Prerequisites**: Node.js 22.x (`nvm use`), npm >= 10, Docker & Docker Compose.
+The application is configured for a split deployment architecture:
+- **Frontend**: Optimized for Vercel (includes `vercel.json` for React Router).
+- **Backend**: Optimized for Render or Railway using Docker and Postgres.
 
-### Run the stack
-
-```bash
-cp .env.example .env
-docker compose up --build
-```
-
-| Service      | URL                              |
-| :----------- | :------------------------------- |
-| Frontend     | http://localhost:5173            |
-| API          | http://localhost:3000/api        |
-| Health check | http://localhost:3000/api/health |
-
-The database schema is empty by design. The first migration is created only
-after the schema specification in `docs/database/` is approved.
-
-### Running on the host instead
-
-```bash
-cp .env.example .env
-cp backend/.env.example backend/.env
-cp frontend/.env.example frontend/.env
-
-docker compose up -d postgres
-
-cd backend && npm install && npm run start:dev
-cd ../frontend && npm install && npm run dev
-```
+Please refer to the setup steps in the repository for connecting the Vercel frontend `VITE_API_BASE_URL` to the deployed backend URL.
 
 ---
 

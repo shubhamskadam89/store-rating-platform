@@ -1,20 +1,54 @@
 # Database Documentation
 
-This directory contains the database design, schema models, migration guidelines, and indexing strategies for the **Store Rating Platform**.
+This directory documents the database design and schema for the **Store Rating Platform**.
 
 ---
 
-## Planned Contents
+## Schema Overview
 
-When finalized during the design phase, this directory will document:
+The database is built using PostgreSQL 16 and managed via Prisma ORM.
 
-1. **Entity-Relationship (ER) Diagrams**: Visual representation of entities and their relationships.
-2. **Database Schema**: Full field-level specification of tables, data types, nullability, default values, and foreign keys.
-3. **Database Constraints**: Primary keys, unique constraints (e.g., unique email, unique user-store rating), check constraints (e.g., rating range 1–5), and foreign key cascade rules.
-4. **Indexing Strategy**: Indexes for query optimization (e.g., store lookup, user ratings, email lookups).
-5. **Migration Strategy**: Guidelines for creating, testing, and applying Prisma migrations across development and production environments.
+### 1. User Model
+Stores all platform users across the three distinct roles.
+- **Fields**:
+  - `id` (UUID, Primary Key)
+  - `email` (String, Unique)
+  - `password` (String, Hashed)
+  - `name` (String, 20-60 characters)
+  - `address` (String, max 400 characters)
+  - `role` (Enum: `NORMAL_USER`, `STORE_OWNER`, `SYSTEM_ADMIN`)
+- **Relationships**:
+  - One-to-Many with `Store` (Owner)
+  - One-to-Many with `Rating` (Customer)
+
+### 2. Store Model
+Represents the retail entities on the platform.
+- **Fields**:
+  - `id` (UUID, Primary Key)
+  - `name` (String)
+  - `email` (String, Unique)
+  - `address` (String)
+  - `rating` (Float, average rating, calculated dynamically or cached)
+  - `ownerId` (UUID, nullable, Foreign Key to User)
+- **Relationships**:
+  - Belongs-to `User` (as Owner)
+  - One-to-Many with `Rating`
+
+### 3. Rating Model
+Records customer feedback for stores.
+- **Fields**:
+  - `id` (UUID, Primary Key)
+  - `userId` (UUID, Foreign Key to User)
+  - `storeId` (UUID, Foreign Key to Store)
+  - `rating` (Int, 1 to 5 constraint enforced at app level)
+  - `createdAt` / `updatedAt` (DateTime)
+- **Constraints**:
+  - A user can only rate a specific store once (Unique constraint on `[userId, storeId]`).
+- **Relationships**:
+  - Belongs-to `User`
+  - Belongs-to `Store`
 
 ---
 
-> [!NOTE]
-> Database models and migrations will be designed and documented here before being implemented in `backend/prisma/schema.prisma`.
+## Migration Strategy
+Database migrations are automatically generated using `npx prisma migrate dev` during local development. In the CI/CD pipeline and production environments, the schema is applied using `npx prisma db push` or `npx prisma migrate deploy` to ensure synchronization without manual intervention.

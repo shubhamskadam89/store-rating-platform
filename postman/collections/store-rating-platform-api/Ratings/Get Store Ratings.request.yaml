@@ -1,0 +1,12 @@
+$kind: http-request
+method: GET
+url: '{{baseUrl}}/stores/{{storeId}}/ratings'
+order: 1000
+description: |-
+  Retrieves ratings for a specific store. Requires authentication.
+auth:
+  type: bearer
+  bearer:
+    - key: token
+      value: '{{token}}'
+headers: []
