@@ -1,18 +1,17 @@
-import { useAuth } from '../features/auth';
-import { useDocumentTitle } from '../hooks';
+import { Link } from 'react-router-dom';
+import { useAuth } from '../features/auth/auth-context';
 
 export function DashboardPage(): React.JSX.Element {
-  useDocumentTitle('Dashboard');
+  const { user } = useAuth();
 
-  const { user, logout } = useAuth();
   return (
-    <main>
+    <div>
       <h1>Dashboard</h1>
-      <p>Welcome, {user?.email} </p>
-      <p>Role, {user?.role} </p>
-      <button type="button" onClick={logout}>
-        Logout
-      </button>
-    </main>
+
+      <p>Welcome, {user?.email}</p>
+      <p>Role: {user?.role}</p>
+
+      <Link to="/stores">Browse Stores</Link>
+    </div>
   );
 }

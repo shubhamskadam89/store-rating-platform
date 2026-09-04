@@ -2,6 +2,7 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { PrismaService } from '../database/prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
+import { Role } from '@prisma/client';
 
 @Injectable()
 export class UsersService {
@@ -40,5 +41,47 @@ export class UsersService {
     });
 
     return user;
+  }
+
+  async getUsers(search?: string, role?: Role) {
+    return this.prisma.user.findMany({
+      where: {
+        ...(search
+          ? {
+              OR: [
+                {
+                  name: {
+                    contains: search,
+                    mode: 'insensitive',
+                  },
+                },
+                {
+                  email: {
+                    contains: search,
+                    mode: 'insensitive',
+                  },
+                },
+                {
+                  address: {
+                    contains: search,
+                    mode: 'insensitive',
+                  },
+                },
+              ],
+            }
+          : {}),
+        ...(role ? { role } : {}),
+      },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        address: true,
+        role: true,
+      },
+      orderBy: {
+        name: 'asc',
+      },
+    });
   }
 }

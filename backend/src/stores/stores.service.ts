@@ -20,4 +20,54 @@ export class StoresService {
       data: createStoreDto,
     });
   }
+
+  async getStores(userId: string, search?: string) {
+    const stores = await this.prisma.store.findMany({
+      where: search
+        ? {
+            OR: [
+              {
+                name: {
+                  contains: search,
+                  mode: 'insensitive',
+                },
+              },
+              {
+                address: {
+                  contains: search,
+                  mode: 'insensitive',
+                },
+              },
+            ],
+          }
+        : undefined,
+      include: {
+        ratings: {
+          select: {
+            value: true,
+            userId: true,
+          },
+        },
+      },
+      orderBy: {
+        name: 'asc',
+      },
+    });
+    return stores.map((store) => {
+      const totalRating = store.ratings.reduce((sum, rating) => sum + rating.value, 0);
+
+      const overallRating =
+        store.ratings.length > 0 ? Number((totalRating / store.ratings.length).toFixed(1)) : null;
+
+      const myRating = store.ratings.find((rating) => rating.userId === userId)?.value ?? null;
+
+      return {
+        id: store.id,
+        name: store.name,
+        address: store.address,
+        overallRating: overallRating,
+        myRating: myRating,
+      };
+    });
+  }
 }

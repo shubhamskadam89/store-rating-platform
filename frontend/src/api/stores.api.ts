@@ -1,0 +1,20 @@
+import { apiClient } from './api-client';
+import type { RatingRequest, Store } from '../types/store';
+
+export const StoresApi = {
+  async getStores(search?: string): Promise<Store[]> {
+    const response = await apiClient.get<Store[]>('/stores', {
+      params: search ? { search } : undefined,
+    });
+
+    return response.data;
+  },
+
+  async createRating(storeId: string, data: RatingRequest): Promise<void> {
+    await apiClient.post(`/stores/${storeId}/ratings`, data);
+  },
+
+  async updateRating(storeId: string, data: RatingRequest): Promise<void> {
+    await apiClient.put(`/stores/${storeId}/ratings`, data);
+  },
+};

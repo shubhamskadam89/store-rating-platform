@@ -1,4 +1,4 @@
-import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query, UseGuards } from '@nestjs/common';
 import { Role } from '@prisma/client';
 import { Roles } from '../auth/roles.decorator';
 import { RolesGuard } from '../auth/roles.guard';
@@ -15,5 +15,12 @@ export class UsersController {
   @Roles(Role.SYSTEM_ADMIN)
   create(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
+  }
+
+  @Get()
+  @Roles(Role.SYSTEM_ADMIN)
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  async getUsers(@Query('search') search?: string, @Query('role') role?: Role) {
+    return this.usersService.getUsers(search, role);
   }
 }
