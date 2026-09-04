@@ -1,0 +1,12 @@
+$kind: http-request
+method: GET
+url: '{{baseUrl}}/users/stats'
+order: 3000
+description: |-
+  Retrieves platform statistics such as user counts, store counts, and total ratings. Requires Admin authentication.
+auth:
+  type: bearer
+  bearer:
+    - key: token
+      value: '{{token}}'
+headers: []

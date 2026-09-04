@@ -1,0 +1,12 @@
+$kind: http-request
+method: GET
+url: '{{baseUrl}}/owner/dashboard'
+order: 1000
+description: |-
+  Retrieves the store dashboard data for the currently authenticated store owner. Requires Store Owner authentication.
+auth:
+  type: bearer
+  bearer:
+    - key: token
+      value: '{{token}}'
+headers: []

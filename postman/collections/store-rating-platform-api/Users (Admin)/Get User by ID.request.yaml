@@ -1,0 +1,12 @@
+$kind: http-request
+method: GET
+url: '{{baseUrl}}/users/{{userId}}'
+order: 2000
+description: |-
+  Retrieves the details of a specific user. Requires Admin authentication.
+auth:
+  type: bearer
+  bearer:
+    - key: token
+      value: '{{token}}'
+headers: []

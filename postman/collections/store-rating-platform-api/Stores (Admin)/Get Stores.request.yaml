@@ -1,5 +1,10 @@
 $kind: http-request
-url: "{{baseUrl}}/stores"
+url: "{{baseUrl}}/stores/admin"
 method: GET
 examples: .resources/Get Stores.resources/examples
 order: 2703093566275983
+auth:
+  type: bearer
+  bearer:
+    - key: token
+      value: '{{token}}'
