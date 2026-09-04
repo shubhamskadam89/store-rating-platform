@@ -1,9 +1,19 @@
+export interface StoreRating {
+  id?: string;
+  userId: string;
+  userName: string;
+  value: number;
+  createdAt?: string;
+}
+
 export interface Store {
   id: string;
   name: string;
   address: string;
   overallRating: number | null;
+  ratingCount?: number;
   myRating: number | null;
+  recentRatings?: StoreRating[];
   email?: string;
   rating?: number | null;
 }
