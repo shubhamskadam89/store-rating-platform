@@ -14,6 +14,11 @@ export interface AdminStore {
   email: string;
   address: string;
   rating: number | null;
+  owner?: {
+    id: string;
+    name: string;
+    email: string;
+  } | null;
 }
 
 export interface RatingRequest {
@@ -24,4 +29,5 @@ export interface CreateStoreRequest {
   name: string;
   email: string;
   address: string;
+  ownerId?: string;
 }

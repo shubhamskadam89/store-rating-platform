@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const APP_NAME = 'Store Rating Platform';
+const APP_NAME = 'What They Say';
 
 export function useDocumentTitle(title?: string): void {
   useEffect(() => {
