@@ -1,0 +1,21 @@
+$kind: http-request
+method: POST
+url: '{{baseUrl}}/stores/:storeId/ratings'
+order: 1000
+description: |-
+  Allows a NORMAL_USER to create a rating (1-5) for a store.
+  - Requires JWT Authentication (NORMAL_USER)
+  - Values: 1 to 5 (Integer)
+  - Duplicate ratings by the same user for the same store return 409 Conflict
+pathVariables:
+  - key: storeId
+    value: 11900f59-7fbf-41fe-917e-0245d708e02c
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "value": 5
+    }

@@ -1,0 +1,21 @@
+$kind: http-request
+method: PUT
+url: '{{baseUrl}}/stores/:storeId/ratings'
+order: 2000
+description: |-
+  Allows a NORMAL_USER to update their existing rating (1-5) for a store.
+  - Requires JWT Authentication (NORMAL_USER)
+  - Values: 1 to 5 (Integer)
+  - If no existing rating found for the store, returns 404 Not Found
+pathVariables:
+  - key: storeId
+    value: 11900f59-7fbf-41fe-917e-0245d708e02c
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "value": 4
+    }

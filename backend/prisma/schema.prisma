@@ -14,21 +14,46 @@ enum Role {
 }
 
 model User {
-  id        String   @id @default(uuid())
-  name      String
-  email     String   @unique
-  password  String
-  address   String
-  role      Role
+  id       String @id @default(uuid())
+  name     String
+  email    String @unique
+  password String
+  address  String
+  role     Role
+
+  ownedStore Store?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  ratings   Rating[]
 }
 
 model Store {
-  id        String   @id @default(uuid())
-  name      String
-  email     String   @unique
-  address   String
+  id      String @id @default(uuid())
+  name    String
+  email   String @unique
+  address String
+
+  ownerId String? @unique
+  owner   User?   @relation(fields: [ownerId], references: [id])
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  ratings   Rating[]
+}
+
+model Rating {
+  id    String @id @default(uuid())
+  value Int
+
+  userId  String
+  storeId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  store Store @relation(fields: [storeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, storeId])
 }

@@ -1,4 +1,4 @@
-import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query, UseGuards } from '@nestjs/common';
 import { Role } from '@prisma/client';
 import { Roles } from '../auth/roles.decorator';
 import { RolesGuard } from '../auth/roles.guard';
@@ -15,5 +15,23 @@ export class UsersController {
   @Roles(Role.SYSTEM_ADMIN)
   create(@Body() createUserDto: CreateUserDto) {
     return this.usersService.create(createUserDto);
+  }
+
+  @Get('stats')
+  @Roles(Role.SYSTEM_ADMIN)
+  async getStats() {
+    return this.usersService.getStats();
+  }
+
+  @Get(':id')
+  @Roles(Role.SYSTEM_ADMIN)
+  async getUserById(@Param('id') id: string) {
+    return this.usersService.getUserById(id);
+  }
+
+  @Get()
+  @Roles(Role.SYSTEM_ADMIN)
+  async getUsers(@Query('search') search?: string, @Query('role') role?: Role) {
+    return this.usersService.getUsers(search, role);
   }
 }

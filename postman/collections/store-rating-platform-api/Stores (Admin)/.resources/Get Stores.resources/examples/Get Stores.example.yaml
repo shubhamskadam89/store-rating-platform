@@ -1,0 +1,39 @@
+$kind: http-example
+request:
+  url: "{{baseUrl}}/stores"
+  method: GET
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    x-powered-by: Express
+    vary: Origin
+    access-control-allow-credentials: "true"
+    content-type: application/json; charset=utf-8
+    content-length: "455"
+    etag: W/"1c7-M4exeZo1EjJ3eZxqgugtHut9E24"
+    date: Thu, 03 Sep 2026 05:16:57 GMT
+    connection: keep-alive
+    keep-alive: timeout=5
+  body:
+    type: json
+    content: |-
+      [
+        {
+          "id": "11900f59-7fbf-41fe-917e-0245d708e02c",
+          "name": "Downtown Supermarket",
+          "email": "store@example.com",
+          "address": "789 Broadway Ave, New York, NY 10003",
+          "createdAt": "2026-09-02T04:38:11.065Z",
+          "updatedAt": "2026-09-02T04:38:11.065Z"
+        },
+        {
+          "id": "c5f21869-a12b-4fde-9d46-842cf3ccc80f",
+          "name": "Shubham Super Market",
+          "email": "supermarket@example.com",
+          "address": "Pune Maharashtra India",
+          "createdAt": "2026-09-02T04:17:32.281Z",
+          "updatedAt": "2026-09-02T04:17:32.281Z"
+        }
+      ]
+order: 1788412659736
