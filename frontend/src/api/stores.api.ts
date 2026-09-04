@@ -1,5 +1,5 @@
 import { apiClient } from './api-client';
-import type { RatingRequest, Store } from '../types/store';
+import type { AdminStore, CreateStoreRequest, RatingRequest, Store } from '../types/store';
 
 export const StoresApi = {
   async getStores(search?: string): Promise<Store[]> {
@@ -8,6 +8,18 @@ export const StoresApi = {
     });
 
     return response.data;
+  },
+
+  async getAdminStores(search?: string): Promise<AdminStore[]> {
+    const response = await apiClient.get<AdminStore[]>('/stores/admin', {
+      params: search ? { search } : undefined,
+    });
+
+    return response.data;
+  },
+
+  async createStore(data: CreateStoreRequest): Promise<void> {
+    await apiClient.post('/stores', data);
   },
 
   async createRating(storeId: string, data: RatingRequest): Promise<void> {

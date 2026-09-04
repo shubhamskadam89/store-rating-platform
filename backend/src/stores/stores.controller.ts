@@ -23,6 +23,13 @@ export class StoresController {
     return this.storesService.create(createStoreDto);
   }
 
+  @Get('admin')
+  @Roles(Role.SYSTEM_ADMIN)
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  async getAdminStores(@Query('search') search?: string) {
+    return this.storesService.getAdminStores(search);
+  }
+
   @Get()
   @UseGuards(JwtAuthGuard)
   async getStores(@Req() request: AuthenticatedRequest, @Query('search') search?: string) {

@@ -70,4 +70,55 @@ export class StoresService {
       };
     });
   }
+
+  async getAdminStores(search?: string) {
+    const stores = await this.prisma.store.findMany({
+      where: search
+        ? {
+            OR: [
+              {
+                name: {
+                  contains: search,
+                  mode: 'insensitive',
+                },
+              },
+              {
+                email: {
+                  contains: search,
+                  mode: 'insensitive',
+                },
+              },
+              {
+                address: {
+                  contains: search,
+                  mode: 'insensitive',
+                },
+              },
+            ],
+          }
+        : undefined,
+      include: {
+        ratings: {
+          select: {
+            value: true,
+          },
+        },
+      },
+      orderBy: {
+        name: 'asc',
+      },
+    });
+
+    return stores.map((store) => {
+      const total = store.ratings.reduce((sum, rating) => sum + rating.value, 0);
+
+      return {
+        id: store.id,
+        name: store.name,
+        email: store.email,
+        address: store.address,
+        rating: store.ratings.length > 0 ? Number((total / store.ratings.length).toFixed(1)) : null,
+      };
+    });
+  }
 }
