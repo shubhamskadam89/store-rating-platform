@@ -286,9 +286,7 @@ export function AdminUserDetailsPage(): React.JSX.Element {
 
       {error && <div className="error-alert">{error}</div>}
 
-      {isLoading && (
-        <div className="empty-box">Loading user account details...</div>
-      )}
+      {isLoading && <div className="empty-box">Loading user account details...</div>}
 
       {!isLoading && user && (
         <>
@@ -305,8 +303,8 @@ export function AdminUserDetailsPage(): React.JSX.Element {
                     user.role === 'SYSTEM_ADMIN'
                       ? 'admin'
                       : user.role === 'STORE_OWNER'
-                      ? 'owner'
-                      : ''
+                        ? 'owner'
+                        : ''
                   }`}
                   id="user-detail-role"
                 >
@@ -318,7 +316,10 @@ export function AdminUserDetailsPage(): React.JSX.Element {
             <div className="info-grid">
               <div className="info-cell">
                 <span className="info-label">User ID</span>
-                <span className="info-value" style={{ fontFamily: 'monospace', fontSize: '0.8125rem' }}>
+                <span
+                  className="info-value"
+                  style={{ fontFamily: 'monospace', fontSize: '0.8125rem' }}
+                >
                   {user.id}
                 </span>
               </div>
@@ -363,16 +364,23 @@ export function AdminUserDetailsPage(): React.JSX.Element {
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div className="store-row">
                         <div>
-                          <h3 className="store-title" id="owned-store-name">{user.ownedStore.name}</h3>
-                          <p className="store-email" id="owned-store-email">{user.ownedStore.email}</p>
+                          <h3 className="store-title" id="owned-store-name">
+                            {user.ownedStore.name}
+                          </h3>
+                          <p className="store-email" id="owned-store-email">
+                            {user.ownedStore.email}
+                          </p>
                         </div>
 
                         <div className="rating-chip" id="owned-store-rating">
                           <span>
-                            {user.ownedStore.rating !== null ? `${user.ownedStore.rating} / 5` : 'No ratings'}
+                            {user.ownedStore.rating !== null
+                              ? `${user.ownedStore.rating} / 5`
+                              : 'No ratings'}
                           </span>
                           <span style={{ fontSize: '0.75rem', color: '#854d0e' }}>
-                            ({user.ownedStore.ratingsCount} {user.ownedStore.ratingsCount === 1 ? 'review' : 'reviews'})
+                            ({user.ownedStore.ratingsCount}{' '}
+                            {user.ownedStore.ratingsCount === 1 ? 'review' : 'reviews'})
                           </span>
                         </div>
                       </div>
@@ -385,7 +393,9 @@ export function AdminUserDetailsPage(): React.JSX.Element {
                   </div>
                 </div>
               ) : (
-                <div className="empty-box">No store is currently assigned to this store owner account.</div>
+                <div className="empty-box">
+                  No store is currently assigned to this store owner account.
+                </div>
               )}
             </div>
           )}
@@ -427,9 +437,7 @@ export function AdminUserDetailsPage(): React.JSX.Element {
                           </td>
                           <td style={{ color: '#64748b' }}>{r.store.email}</td>
                           <td>
-                            <span style={{ fontWeight: 600, color: '#09090b' }}>
-                              {r.value} / 5
-                            </span>
+                            <span style={{ fontWeight: 600, color: '#09090b' }}>{r.value} / 5</span>
                           </td>
                           <td style={{ color: '#64748b' }}>
                             {new Date(r.createdAt).toLocaleDateString(undefined, {
@@ -444,7 +452,9 @@ export function AdminUserDetailsPage(): React.JSX.Element {
                   </table>
                 </div>
               ) : (
-                <div className="empty-box">No ratings have been submitted by this user account yet.</div>
+                <div className="empty-box">
+                  No ratings have been submitted by this user account yet.
+                </div>
               )}
             </div>
           )}
@@ -453,7 +463,9 @@ export function AdminUserDetailsPage(): React.JSX.Element {
             <div className="detail-card">
               <h2 className="section-title">Administrative Permissions</h2>
               <p style={{ color: '#64748b', fontSize: '0.875rem', lineHeight: '1.5', margin: 0 }}>
-                This account has full operator permissions across the What They Say platform, including managing stores, users, password management, and viewing platform statistics.
+                This account has full operator permissions across the What They Say platform,
+                including managing stores, users, password management, and viewing platform
+                statistics.
               </p>
             </div>
           )}

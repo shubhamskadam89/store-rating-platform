@@ -5,7 +5,8 @@ import { useNotification } from '../features/notifications';
 import { getErrorMessage } from '../utils/error';
 import type { Store } from '../types/store';
 
-type StoreSortOption = 'default' | 'most-rated' | 'rating-desc' | 'rating-asc' | 'name-asc' | 'name-desc';
+type StoreSortOption =
+  'default' | 'most-rated' | 'rating-desc' | 'rating-asc' | 'name-asc' | 'name-desc';
 
 export function StoresPage(): React.JSX.Element {
   const { notifySuccess, notifyError } = useNotification();
@@ -236,9 +237,7 @@ export function StoresPage(): React.JSX.Element {
 
       <div className="stores-header">
         <h1 className="stores-title">Stores</h1>
-        <p className="stores-subtitle">
-          Browse registered stores and submit your ratings.
-        </p>
+        <p className="stores-subtitle">Browse registered stores and submit your ratings.</p>
       </div>
 
       <div className="stores-controls">

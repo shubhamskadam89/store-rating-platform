@@ -521,17 +521,29 @@ export function AdminStoresPage(): React.JSX.Element {
                   </button>
                 </th>
                 <th>
-                  <button type="button" className="sort-trigger" onClick={() => handleSort('email')}>
+                  <button
+                    type="button"
+                    className="sort-trigger"
+                    onClick={() => handleSort('email')}
+                  >
                     Email {sortField === 'email' && (sortDirection === 'asc' ? '↑' : '↓')}
                   </button>
                 </th>
                 <th>
-                  <button type="button" className="sort-trigger" onClick={() => handleSort('address')}>
+                  <button
+                    type="button"
+                    className="sort-trigger"
+                    onClick={() => handleSort('address')}
+                  >
                     Address {sortField === 'address' && (sortDirection === 'asc' ? '↑' : '↓')}
                   </button>
                 </th>
                 <th>
-                  <button type="button" className="sort-trigger" onClick={() => handleSort('rating')}>
+                  <button
+                    type="button"
+                    className="sort-trigger"
+                    onClick={() => handleSort('rating')}
+                  >
                     Rating {sortField === 'rating' && (sortDirection === 'asc' ? '↑' : '↓')}
                   </button>
                 </th>
@@ -541,13 +553,19 @@ export function AdminStoresPage(): React.JSX.Element {
             <tbody>
               {isLoading && stores.length === 0 ? (
                 <tr>
-                  <td colSpan={5} style={{ textAlign: 'center', padding: '2.5rem', color: '#64748b' }}>
+                  <td
+                    colSpan={5}
+                    style={{ textAlign: 'center', padding: '2.5rem', color: '#64748b' }}
+                  >
                     Loading stores...
                   </td>
                 </tr>
               ) : sortedStores.length === 0 ? (
                 <tr>
-                  <td colSpan={5} style={{ textAlign: 'center', padding: '2.5rem', color: '#64748b' }}>
+                  <td
+                    colSpan={5}
+                    style={{ textAlign: 'center', padding: '2.5rem', color: '#64748b' }}
+                  >
                     No stores found.
                   </td>
                 </tr>
@@ -663,11 +681,7 @@ export function AdminStoresPage(): React.JSX.Element {
               </div>
 
               <div className="modal-actions">
-                <button
-                  type="button"
-                  className="btn-cancel"
-                  onClick={() => setShowModal(false)}
-                >
+                <button type="button" className="btn-cancel" onClick={() => setShowModal(false)}>
                   Cancel
                 </button>
                 <button

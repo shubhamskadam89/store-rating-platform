@@ -37,10 +37,7 @@ export function OwnerDashboardPage(): React.JSX.Element {
     data?.ratings.filter((r) => {
       if (!search.trim()) return true;
       const term = search.toLowerCase();
-      return (
-        r.user.name.toLowerCase().includes(term) ||
-        r.user.email.toLowerCase().includes(term)
-      );
+      return r.user.name.toLowerCase().includes(term) || r.user.email.toLowerCase().includes(term);
     }) ?? [];
 
   return (
@@ -291,9 +288,7 @@ export function OwnerDashboardPage(): React.JSX.Element {
 
       <div className="header-section">
         <h1 className="portal-title">Store Owner Dashboard</h1>
-        <p className="portal-subtitle">
-          Performance metrics and customer ratings for your store.
-        </p>
+        <p className="portal-subtitle">Performance metrics and customer ratings for your store.</p>
       </div>
 
       {isLoading ? (
@@ -321,7 +316,14 @@ export function OwnerDashboardPage(): React.JSX.Element {
 
           <div className="metric-grid">
             <div className="metric-panel">
-              <div style={{ display: 'flex', gap: '0.85rem', alignItems: 'center', marginBottom: '0.5rem' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  gap: '0.85rem',
+                  alignItems: 'center',
+                  marginBottom: '0.5rem',
+                }}
+              >
                 <img
                   src={getStoreImage(data.store.name, data.store.id)}
                   alt={data.store.name}
@@ -335,7 +337,9 @@ export function OwnerDashboardPage(): React.JSX.Element {
                   }}
                 />
                 <div style={{ minWidth: 0, flex: 1 }}>
-                  <div className="metric-label" style={{ marginBottom: '0.15rem' }}>Store</div>
+                  <div className="metric-label" style={{ marginBottom: '0.15rem' }}>
+                    Store
+                  </div>
                   <h2 className="metric-title" style={{ fontSize: '1.05rem', margin: 0 }}>
                     {data.store.name}
                   </h2>
@@ -408,9 +412,7 @@ export function OwnerDashboardPage(): React.JSX.Element {
                         <td style={{ fontWeight: 500, color: '#09090b' }}>{r.user.name}</td>
                         <td style={{ color: '#64748b' }}>{r.user.email}</td>
                         <td>
-                          <span style={{ fontWeight: 600, color: '#09090b' }}>
-                            {r.value} / 5
-                          </span>
+                          <span style={{ fontWeight: 600, color: '#09090b' }}>{r.value} / 5</span>
                         </td>
                         <td style={{ color: '#64748b' }}>
                           {new Date(r.createdAt).toLocaleDateString(undefined, {

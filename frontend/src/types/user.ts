@@ -44,4 +44,3 @@ export interface UserDetails extends User {
   ownedStore: UserOwnedStore | null;
   ratings: UserSubmittedRating[];
 }
-

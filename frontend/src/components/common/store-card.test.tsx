@@ -49,12 +49,16 @@ describe('StoreCard', () => {
     expect(screen.queryByText('Ananya Sharma')).not.toBeInTheDocument();
 
     // Click the customer ratings button
-    const ratingsBtn = screen.getByRole('button', { name: /view 24 customer ratings for shubham super market/i });
+    const ratingsBtn = screen.getByRole('button', {
+      name: /view 24 customer ratings for shubham super market/i,
+    });
     fireEvent.click(ratingsBtn);
 
     // Modal dialog opens revealing other people's ratings
     await waitFor(() => {
-      expect(screen.getByRole('dialog', { name: /ratings for shubham super market/i })).toBeInTheDocument();
+      expect(
+        screen.getByRole('dialog', { name: /ratings for shubham super market/i }),
+      ).toBeInTheDocument();
     });
 
     expect(screen.getByText('Ananya Sharma')).toBeInTheDocument();

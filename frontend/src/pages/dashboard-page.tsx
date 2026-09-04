@@ -47,7 +47,9 @@ export function DashboardPage(): React.JSX.Element {
   const myRatedStores = stores.filter((s) => s.myRating !== null);
   const myAvgRating =
     myRatedStores.length > 0
-      ? (myRatedStores.reduce((sum, s) => sum + (s.myRating ?? 0), 0) / myRatedStores.length).toFixed(1)
+      ? (
+          myRatedStores.reduce((sum, s) => sum + (s.myRating ?? 0), 0) / myRatedStores.length
+        ).toFixed(1)
       : null;
 
   // Top community picks (sorted by overallRating descending)
@@ -565,13 +567,21 @@ export function DashboardPage(): React.JSX.Element {
               <div>
                 <h1 className="welcome-title">Welcome to What They Say</h1>
                 <p className="welcome-desc">
-                  Your community rating dashboard. Discover standout local shops, track your ratings, and guide shoppers with authentic feedback.
+                  Your community rating dashboard. Discover standout local shops, track your
+                  ratings, and guide shoppers with authentic feedback.
                 </p>
               </div>
             </div>
 
             <form onSubmit={handleQuickSearchSubmit} className="welcome-search-bar">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="2">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#64748b"
+                strokeWidth="2"
+              >
                 <circle cx="11" cy="11" r="8" />
                 <line x1="21" y1="21" x2="16.65" y2="16.65" />
               </svg>
@@ -593,7 +603,14 @@ export function DashboardPage(): React.JSX.Element {
           <div className="metrics-grid">
             <div className="metric-card">
               <div className="metric-label">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                   <polyline points="22 4 12 14.01 9 11.01" />
                 </svg>
@@ -614,9 +631,7 @@ export function DashboardPage(): React.JSX.Element {
               </div>
               <div className="metric-value">
                 <span>{myAvgRating ? `${myAvgRating}` : '—'}</span>
-                {myAvgRating && (
-                  <span style={{ fontSize: '1rem', color: '#f59e0b' }}>★</span>
-                )}
+                {myAvgRating && <span style={{ fontSize: '1rem', color: '#f59e0b' }}>★</span>}
               </div>
               <div className="metric-subtext">Based on your submitted ratings</div>
             </div>
@@ -626,7 +641,14 @@ export function DashboardPage(): React.JSX.Element {
           <div className="dashboard-section">
             <div className="section-title-row">
               <h2 className="section-heading">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                 </svg>
                 <span>Stores You've Rated</span>
@@ -657,16 +679,17 @@ export function DashboardPage(): React.JSX.Element {
                         <div className="mini-card-header">
                           <h3 className="mini-card-name">{store.name}</h3>
                           <span className="mini-card-badge">
-                            ★ {store.overallRating !== null ? Number(store.overallRating).toFixed(1) : '—'}
+                            ★{' '}
+                            {store.overallRating !== null
+                              ? Number(store.overallRating).toFixed(1)
+                              : '—'}
                           </span>
                         </div>
                         <p className="mini-card-address">{store.address}</p>
                       </div>
 
                       <div className="mini-card-footer">
-                        <span className="my-score-pill">
-                          Your rating: {store.myRating} / 5
-                        </span>
+                        <span className="my-score-pill">Your rating: {store.myRating} / 5</span>
                         <Link to="/stores" className="btn-card-action">
                           Modify
                         </Link>
@@ -677,11 +700,18 @@ export function DashboardPage(): React.JSX.Element {
               </div>
             ) : (
               <div className="empty-dash-state">
-                <svg className="empty-dash-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <svg
+                  className="empty-dash-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
                   <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                 </svg>
                 <p className="empty-dash-text">
-                  You haven't rated any stores yet. Share your first rating to help shoppers and local businesses!
+                  You haven't rated any stores yet. Share your first rating to help shoppers and
+                  local businesses!
                 </p>
                 <Link to="/stores" className="btn-empty-action">
                   Browse &amp; Rate Stores
@@ -695,7 +725,14 @@ export function DashboardPage(): React.JSX.Element {
             <div className="dashboard-section">
               <div className="section-title-row">
                 <h2 className="section-heading">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                   </svg>
                   <span>Top Community Favorites</span>
@@ -719,7 +756,10 @@ export function DashboardPage(): React.JSX.Element {
                         <div className="mini-card-header">
                           <h3 className="mini-card-name">{store.name}</h3>
                           <span className="mini-card-badge">
-                            ★ {store.overallRating !== null ? Number(store.overallRating).toFixed(1) : 'Unrated'}
+                            ★{' '}
+                            {store.overallRating !== null
+                              ? Number(store.overallRating).toFixed(1)
+                              : 'Unrated'}
                           </span>
                         </div>
                         <p className="mini-card-address">{store.address}</p>

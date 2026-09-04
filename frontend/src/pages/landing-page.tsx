@@ -925,9 +925,21 @@ export function LandingPage(): React.JSX.Element {
           </Link>
 
           <ul className="nav-center-links">
-            <li><a href="#features" className="nav-center-link">Features</a></li>
-            <li><a href="#how-it-works" className="nav-center-link">How It Works</a></li>
-            <li><a href="#community" className="nav-center-link">Community Trust</a></li>
+            <li>
+              <a href="#features" className="nav-center-link">
+                Features
+              </a>
+            </li>
+            <li>
+              <a href="#how-it-works" className="nav-center-link">
+                How It Works
+              </a>
+            </li>
+            <li>
+              <a href="#community" className="nav-center-link">
+                Community Trust
+              </a>
+            </li>
           </ul>
 
           <div className="nav-action-buttons">
@@ -955,12 +967,26 @@ export function LandingPage(): React.JSX.Element {
             id="landing-mobile-menu-btn"
           >
             {mobileMenuOpen ? (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
             ) : (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <line x1="3" y1="12" x2="21" y2="12" />
                 <line x1="3" y1="6" x2="21" y2="6" />
                 <line x1="3" y1="18" x2="21" y2="18" />
@@ -972,9 +998,27 @@ export function LandingPage(): React.JSX.Element {
         {/* Mobile Navigation Drawer */}
         <div className={`landing-mobile-drawer ${mobileMenuOpen ? 'open' : ''}`}>
           <div className="mobile-drawer-links">
-            <a href="#features" className="mobile-drawer-link" onClick={() => setMobileMenuOpen(false)}>Features</a>
-            <a href="#how-it-works" className="mobile-drawer-link" onClick={() => setMobileMenuOpen(false)}>How It Works</a>
-            <a href="#community" className="mobile-drawer-link" onClick={() => setMobileMenuOpen(false)}>Community Trust</a>
+            <a
+              href="#features"
+              className="mobile-drawer-link"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Features
+            </a>
+            <a
+              href="#how-it-works"
+              className="mobile-drawer-link"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              How It Works
+            </a>
+            <a
+              href="#community"
+              className="mobile-drawer-link"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Community Trust
+            </a>
           </div>
           <div className="mobile-drawer-actions">
             {isAuthenticated ? (
@@ -999,7 +1043,13 @@ export function LandingPage(): React.JSX.Element {
         {/* Hero Section */}
         <section className="hero-section">
           <div className="hero-badge-wrap">
-            <svg className="hero-badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              className="hero-badge-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
               <polyline points="9 22 9 12 15 12 15 22" />
             </svg>
@@ -1019,7 +1069,14 @@ export function LandingPage(): React.JSX.Element {
             {isAuthenticated ? (
               <Link to="/dashboard" className="btn-hero-primary" id="hero-primary-dashboard-cta">
                 <span>Go to Dashboard</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
@@ -1028,7 +1085,14 @@ export function LandingPage(): React.JSX.Element {
               <>
                 <Link to="/register" className="btn-hero-primary" id="hero-primary-register-cta">
                   <span>Start Rating Stores</span>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="12 5 19 12 12 19" />
                   </svg>
@@ -1042,19 +1106,37 @@ export function LandingPage(): React.JSX.Element {
 
           <div className="hero-trust-row">
             <div className="hero-trust-item">
-              <svg className="hero-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <svg
+                className="hero-trust-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+              >
                 <polyline points="20 6 9 17 4 12" />
               </svg>
               <span>1 to 5 Star Rating Precision</span>
             </div>
             <div className="hero-trust-item">
-              <svg className="hero-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <svg
+                className="hero-trust-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+              >
                 <polyline points="20 6 9 17 4 12" />
               </svg>
               <span>Verified Customer Reviews</span>
             </div>
             <div className="hero-trust-item">
-              <svg className="hero-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <svg
+                className="hero-trust-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+              >
                 <polyline points="20 6 9 17 4 12" />
               </svg>
               <span>Instant Score Recalculation</span>
@@ -1109,8 +1191,8 @@ export function LandingPage(): React.JSX.Element {
             <span className="section-pill">Core Platform</span>
             <h2 className="section-title">Built for Trust, Speed, and Clarity</h2>
             <p className="section-subtitle">
-              Every feature is engineered to provide authentic community insight for shoppers and actionable
-              performance visibility for business owners.
+              Every feature is engineered to provide authentic community insight for shoppers and
+              actionable performance visibility for business owners.
             </p>
           </div>
 
@@ -1123,7 +1205,8 @@ export function LandingPage(): React.JSX.Element {
               </div>
               <h3 className="feature-card-title">Interactive Star Ratings</h3>
               <p className="feature-card-text">
-                Browse stores and submit ratings on a calibrated 1 to 5 scale. Easily update or refine your score at any time.
+                Browse stores and submit ratings on a calibrated 1 to 5 scale. Easily update or
+                refine your score at any time.
               </p>
             </div>
 
@@ -1137,7 +1220,8 @@ export function LandingPage(): React.JSX.Element {
               </div>
               <h3 className="feature-card-title">Real-Time Score Aggregation</h3>
               <p className="feature-card-text">
-                Average ratings and review counts update immediately upon every submission, ensuring store profiles stay accurate.
+                Average ratings and review counts update immediately upon every submission, ensuring
+                store profiles stay accurate.
               </p>
             </div>
 
@@ -1150,7 +1234,8 @@ export function LandingPage(): React.JSX.Element {
               </div>
               <h3 className="feature-card-title">Multi-Field Store Discovery</h3>
               <p className="feature-card-text">
-                Search and sort by store name, address, or overall rating with responsive debounced filters.
+                Search and sort by store name, address, or overall rating with responsive debounced
+                filters.
               </p>
             </div>
 
@@ -1162,7 +1247,8 @@ export function LandingPage(): React.JSX.Element {
               </div>
               <h3 className="feature-card-title">Verified Customer Ratings</h3>
               <p className="feature-card-text">
-                Every rating is linked to a verified user account, eliminating artificial bot reviews and review bombing.
+                Every rating is linked to a verified user account, eliminating artificial bot
+                reviews and review bombing.
               </p>
             </div>
 
@@ -1177,7 +1263,8 @@ export function LandingPage(): React.JSX.Element {
               </div>
               <h3 className="feature-card-title">Recent Community Previews</h3>
               <p className="feature-card-text">
-                Store cards show recent ratings from fellow customers at a glance with instant reviewer initials.
+                Store cards show recent ratings from fellow customers at a glance with instant
+                reviewer initials.
               </p>
             </div>
 
@@ -1190,7 +1277,8 @@ export function LandingPage(): React.JSX.Element {
               </div>
               <h3 className="feature-card-title">Empowering Local Stores</h3>
               <p className="feature-card-text">
-                Honest feedback rewards outstanding service and gives neighborhood shops actionable guidance to grow.
+                Honest feedback rewards outstanding service and gives neighborhood shops actionable
+                guidance to grow.
               </p>
             </div>
           </div>
@@ -1203,7 +1291,8 @@ export function LandingPage(): React.JSX.Element {
               <span className="section-pill">Simple Workflow</span>
               <h2 className="section-title">How What They Say Works</h2>
               <p className="section-subtitle">
-                A seamless path from discovering local stores to submitting verified ratings in seconds.
+                A seamless path from discovering local stores to submitting verified ratings in
+                seconds.
               </p>
             </div>
 
@@ -1212,7 +1301,8 @@ export function LandingPage(): React.JSX.Element {
                 <div className="step-number-badge">1</div>
                 <h3 className="step-title">Discover Stores</h3>
                 <p className="step-desc">
-                  Browse the comprehensive store catalog. Search by name, address, or sort by current rating.
+                  Browse the comprehensive store catalog. Search by name, address, or sort by
+                  current rating.
                 </p>
               </div>
 
@@ -1220,7 +1310,8 @@ export function LandingPage(): React.JSX.Element {
                 <div className="step-number-badge">2</div>
                 <h3 className="step-title">Submit Ratings</h3>
                 <p className="step-desc">
-                  Rate customer experiences on a clean 1 to 5 scale. You can modify your rating anytime as service evolves.
+                  Rate customer experiences on a clean 1 to 5 scale. You can modify your rating
+                  anytime as service evolves.
                 </p>
               </div>
 
@@ -1228,7 +1319,8 @@ export function LandingPage(): React.JSX.Element {
                 <div className="step-number-badge">3</div>
                 <h3 className="step-title">Empower Growth</h3>
                 <p className="step-desc">
-                  Store owners monitor aggregated customer sentiment in real time, making data-driven improvements.
+                  Store owners monitor aggregated customer sentiment in real time, making
+                  data-driven improvements.
                 </p>
               </div>
             </div>
@@ -1241,7 +1333,8 @@ export function LandingPage(): React.JSX.Element {
             <span className="section-pill">Community Trust</span>
             <h2 className="section-title">Why Shoppers Trust What They Say</h2>
             <p className="section-subtitle">
-              Engineered for genuine local discovery. No paid promotions, no opaque algorithms—just authentic ratings from real customers.
+              Engineered for genuine local discovery. No paid promotions, no opaque algorithms—just
+              authentic ratings from real customers.
             </p>
           </div>
 
@@ -1252,31 +1345,52 @@ export function LandingPage(): React.JSX.Element {
                   <span className="role-tag user">Authentic</span>
                   <h3 className="role-title">Real Customer Experiences</h3>
                   <p className="role-summary">
-                    Every score is submitted by verified shoppers, reflecting true service quality and consistency.
+                    Every score is submitted by verified shoppers, reflecting true service quality
+                    and consistency.
                   </p>
                 </div>
                 <ul className="role-feature-list">
                   <li className="role-feature-item">
-                    <svg className="role-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <svg
+                      className="role-feature-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                    >
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                     <span>Clear 1 to 5 star rating system</span>
                   </li>
                   <li className="role-feature-item">
-                    <svg className="role-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <svg
+                      className="role-feature-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                    >
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                     <span>Recent customer rating previews</span>
                   </li>
                   <li className="role-feature-item">
-                    <svg className="role-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <svg
+                      className="role-feature-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                    >
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                     <span>Detailed full-history ratings drawer</span>
                   </li>
                 </ul>
               </div>
-              <Link to="/register" className="role-cta-btn">Start Exploring Stores</Link>
+              <Link to="/register" className="role-cta-btn">
+                Start Exploring Stores
+              </Link>
             </div>
 
             <div className="role-card">
@@ -1290,26 +1404,46 @@ export function LandingPage(): React.JSX.Element {
                 </div>
                 <ul className="role-feature-list">
                   <li className="role-feature-item">
-                    <svg className="role-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <svg
+                      className="role-feature-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                    >
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                     <span>Rate any store in seconds</span>
                   </li>
                   <li className="role-feature-item">
-                    <svg className="role-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <svg
+                      className="role-feature-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                    >
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                     <span>Update your score as service evolves</span>
                   </li>
                   <li className="role-feature-item">
-                    <svg className="role-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <svg
+                      className="role-feature-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                    >
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                     <span>Sort by highest, lowest, or most rated</span>
                   </li>
                 </ul>
               </div>
-              <Link to="/register" className="role-cta-btn">Share Your Rating</Link>
+              <Link to="/register" className="role-cta-btn">
+                Share Your Rating
+              </Link>
             </div>
 
             <div className="role-card">
@@ -1318,31 +1452,52 @@ export function LandingPage(): React.JSX.Element {
                   <span className="role-tag admin">Community</span>
                   <h3 className="role-title">Strengthening Local Businesses</h3>
                   <p className="role-summary">
-                    Help exceptional stores earn community reputation and support neighborhood commerce.
+                    Help exceptional stores earn community reputation and support neighborhood
+                    commerce.
                   </p>
                 </div>
                 <ul className="role-feature-list">
                   <li className="role-feature-item">
-                    <svg className="role-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <svg
+                      className="role-feature-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                    >
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                     <span>Highlight top-rated stores near you</span>
                   </li>
                   <li className="role-feature-item">
-                    <svg className="role-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <svg
+                      className="role-feature-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                    >
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                     <span>Actionable signals for store owners</span>
                   </li>
                   <li className="role-feature-item">
-                    <svg className="role-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <svg
+                      className="role-feature-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                    >
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                     <span>Community-driven trust and standards</span>
                   </li>
                 </ul>
               </div>
-              <Link to="/register" className="role-cta-btn">Join the Platform</Link>
+              <Link to="/register" className="role-cta-btn">
+                Join the Platform
+              </Link>
             </div>
           </div>
         </section>
@@ -1353,11 +1508,19 @@ export function LandingPage(): React.JSX.Element {
             <div className="cta-banner-glow" aria-hidden="true" />
             <h2 className="cta-banner-title">Ready to Experience Transparent Feedback?</h2>
             <p className="cta-banner-desc">
-              Join shoppers and business owners today on What They Say. Discover top-rated stores or track your store’s reputation in real time.
+              Join shoppers and business owners today on What They Say. Discover top-rated stores or
+              track your store’s reputation in real time.
             </p>
             <Link to="/register" className="btn-banner-action" id="footer-cta-register-btn">
               <span>Create Free Account</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
               </svg>
@@ -1374,11 +1537,31 @@ export function LandingPage(): React.JSX.Element {
               <img src="/logo.svg" alt="What They Say" className="landing-brand-logo" />
             </Link>
             <ul className="footer-nav-links">
-              <li><a href="#features" className="footer-nav-link">Features</a></li>
-              <li><a href="#how-it-works" className="footer-nav-link">How It Works</a></li>
-              <li><a href="#community" className="footer-nav-link">Community Trust</a></li>
-              <li><Link to="/login" className="footer-nav-link">Sign In</Link></li>
-              <li><Link to="/register" className="footer-nav-link">Register</Link></li>
+              <li>
+                <a href="#features" className="footer-nav-link">
+                  Features
+                </a>
+              </li>
+              <li>
+                <a href="#how-it-works" className="footer-nav-link">
+                  How It Works
+                </a>
+              </li>
+              <li>
+                <a href="#community" className="footer-nav-link">
+                  Community Trust
+                </a>
+              </li>
+              <li>
+                <Link to="/login" className="footer-nav-link">
+                  Sign In
+                </Link>
+              </li>
+              <li>
+                <Link to="/register" className="footer-nav-link">
+                  Register
+                </Link>
+              </li>
             </ul>
           </div>
 

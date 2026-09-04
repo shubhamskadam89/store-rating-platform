@@ -20,11 +20,7 @@ export function UpdatePasswordPage(): React.JSX.Element {
   const passwordsMatch = newPassword.length > 0 && newPassword === confirmPassword;
 
   const isFormValid =
-    currentPassword.length > 0 &&
-    hasLength &&
-    hasUppercase &&
-    hasSpecial &&
-    passwordsMatch;
+    currentPassword.length > 0 && hasLength && hasUppercase && hasSpecial && passwordsMatch;
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault();

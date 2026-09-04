@@ -5,7 +5,11 @@ import {
   type NotificationType,
 } from './notification-context';
 
-export function NotificationProvider({ children }: { children: React.ReactNode }): React.JSX.Element {
+export function NotificationProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}): React.JSX.Element {
   const [notifications, setNotifications] = useState<NotificationItem[]>([]);
 
   const dismiss = useCallback((id: string) => {

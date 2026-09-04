@@ -11,7 +11,9 @@ describe('App', () => {
     render(<App />);
     expect(screen.getAllByAltText('What They Say')[0]).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Real Feedback/i);
-    expect(screen.getByAltText(/What They Say Store Rating Dashboard Overview/i)).toBeInTheDocument();
+    expect(
+      screen.getByAltText(/What They Say Store Rating Dashboard Overview/i),
+    ).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /start rating stores/i })).toBeInTheDocument();
   });
 

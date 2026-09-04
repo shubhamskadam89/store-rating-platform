@@ -1,5 +1,11 @@
 import { apiClient } from './api-client';
-import type { AdminStore, CreateStoreRequest, RatingRequest, Store, StoreRating } from '../types/store';
+import type {
+  AdminStore,
+  CreateStoreRequest,
+  RatingRequest,
+  Store,
+  StoreRating,
+} from '../types/store';
 
 export const StoresApi = {
   async getStores(search?: string): Promise<Store[]> {

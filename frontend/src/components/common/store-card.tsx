@@ -524,12 +524,7 @@ export function StoreCard({
 
       {/* Stock Image Header */}
       <div className="card-image-cover">
-        <img
-          src={storeImage}
-          alt={store.name}
-          className="card-store-img"
-          loading="lazy"
-        />
+        <img src={storeImage} alt={store.name} className="card-store-img" loading="lazy" />
         <div className="card-image-gradient" />
         <button
           type="button"
@@ -537,10 +532,12 @@ export function StoreCard({
           onClick={() => {
             if (ratingCount > 0) void handleOpenModal();
           }}
-          title={ratingCount > 0 ? "Click to view customer ratings" : "No ratings yet"}
+          title={ratingCount > 0 ? 'Click to view customer ratings' : 'No ratings yet'}
         >
           <StarIcon filled={store.overallRating !== null} size={13} />
-          <span>{store.overallRating !== null ? Number(store.overallRating).toFixed(1) : 'New'}</span>
+          <span>
+            {store.overallRating !== null ? Number(store.overallRating).toFixed(1) : 'New'}
+          </span>
         </button>
       </div>
 
@@ -555,9 +552,7 @@ export function StoreCard({
           <div className="reputation-strip">
             <span className="reputation-score">
               <StarIcon filled={store.overallRating !== null} size={18} />
-              {store.overallRating !== null
-                ? Number(store.overallRating).toFixed(1)
-                : '0.0'}
+              {store.overallRating !== null ? Number(store.overallRating).toFixed(1) : '0.0'}
             </span>
             <span className="reputation-dot">•</span>
             <span className="reputation-count">
@@ -573,10 +568,21 @@ export function StoreCard({
               onClick={() => void handleOpenModal()}
               disabled={ratingCount === 0}
               id={`view-ratings-btn-${store.id}`}
-              aria-label={ratingCount > 0 ? `View ${ratingCount} customer ratings for ${store.name}` : `No customer ratings yet`}
+              aria-label={
+                ratingCount > 0
+                  ? `View ${ratingCount} customer ratings for ${store.name}`
+                  : `No customer ratings yet`
+              }
             >
               <div className="btn-inner-left">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                   <circle cx="9" cy="7" r="4" />
                   <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
@@ -628,7 +634,9 @@ export function StoreCard({
 
           <button
             type="button"
-            disabled={isSubmitting || selectedRating === 0 || (!hasRatingChanged && store.myRating !== null)}
+            disabled={
+              isSubmitting || selectedRating === 0 || (!hasRatingChanged && store.myRating !== null)
+            }
             className="submit-rating-btn"
             onClick={handleSave}
             id={`submit-rating-btn-${store.id}`}
@@ -636,12 +644,12 @@ export function StoreCard({
             {isSubmitting
               ? 'Saving...'
               : hasRatingChanged
-              ? store.myRating !== null
-                ? `Update to ${selectedRating} / 5`
-                : `Submit ${selectedRating} / 5`
-              : store.myRating !== null
-              ? 'Rating Saved'
-              : 'Select rating'}
+                ? store.myRating !== null
+                  ? `Update to ${selectedRating} / 5`
+                  : `Submit ${selectedRating} / 5`
+                : store.myRating !== null
+                  ? 'Rating Saved'
+                  : 'Select rating'}
           </button>
         </div>
       </div>
@@ -662,7 +670,10 @@ export function StoreCard({
               <div className="modal-title-wrap">
                 <h3 className="modal-title">{store.name}</h3>
                 <p className="modal-subtitle">
-                  {ratingCount} verified {ratingCount === 1 ? 'rating' : 'ratings'} • {store.overallRating !== null ? `${Number(store.overallRating).toFixed(1)} average` : 'No score'}
+                  {ratingCount} verified {ratingCount === 1 ? 'rating' : 'ratings'} •{' '}
+                  {store.overallRating !== null
+                    ? `${Number(store.overallRating).toFixed(1)} average`
+                    : 'No score'}
                 </p>
               </div>
 
@@ -672,7 +683,14 @@ export function StoreCard({
                 onClick={() => setModalOpen(false)}
                 aria-label="Close ratings modal"
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <line x1="18" y1="6" x2="6" y2="18" />
                   <line x1="6" y1="6" x2="18" y2="18" />
                 </svg>

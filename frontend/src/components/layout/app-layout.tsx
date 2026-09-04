@@ -276,7 +276,12 @@ export function AppLayout(): React.JSX.Element {
       <header className="app-navbar">
         <div className="navbar-container">
           <div className="navbar-left">
-            <Link to="/dashboard" className="brand-logo" id="nav-brand-logo" aria-label="What They Say">
+            <Link
+              to="/dashboard"
+              className="brand-logo"
+              id="nav-brand-logo"
+              aria-label="What They Say"
+            >
               <img src="/logo.svg" alt="What They Say" className="brand-nav-logo" />
             </Link>
 

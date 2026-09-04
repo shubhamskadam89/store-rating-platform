@@ -65,7 +65,9 @@ export function AdminUsersPage(): React.JSX.Element {
     }
 
     if (!/[A-Z]/.test(form.password) || !/[^A-Za-z0-9]/.test(form.password)) {
-      setCreateError('Password must contain at least one uppercase letter and one special character.');
+      setCreateError(
+        'Password must contain at least one uppercase letter and one special character.',
+      );
       return;
     }
 
@@ -551,12 +553,20 @@ export function AdminUsersPage(): React.JSX.Element {
                   </button>
                 </th>
                 <th>
-                  <button type="button" className="sort-trigger" onClick={() => handleSort('email')}>
+                  <button
+                    type="button"
+                    className="sort-trigger"
+                    onClick={() => handleSort('email')}
+                  >
                     Email {sortField === 'email' && (sortDirection === 'asc' ? '↑' : '↓')}
                   </button>
                 </th>
                 <th>
-                  <button type="button" className="sort-trigger" onClick={() => handleSort('address')}>
+                  <button
+                    type="button"
+                    className="sort-trigger"
+                    onClick={() => handleSort('address')}
+                  >
                     Address {sortField === 'address' && (sortDirection === 'asc' ? '↑' : '↓')}
                   </button>
                 </th>
@@ -571,13 +581,19 @@ export function AdminUsersPage(): React.JSX.Element {
             <tbody>
               {isLoading && users.length === 0 ? (
                 <tr>
-                  <td colSpan={5} style={{ textAlign: 'center', padding: '2.5rem', color: '#64748b' }}>
+                  <td
+                    colSpan={5}
+                    style={{ textAlign: 'center', padding: '2.5rem', color: '#64748b' }}
+                  >
                     Loading users...
                   </td>
                 </tr>
               ) : sortedUsers.length === 0 ? (
                 <tr>
-                  <td colSpan={5} style={{ textAlign: 'center', padding: '2.5rem', color: '#64748b' }}>
+                  <td
+                    colSpan={5}
+                    style={{ textAlign: 'center', padding: '2.5rem', color: '#64748b' }}
+                  >
                     No users found matching your criteria.
                   </td>
                 </tr>
@@ -600,8 +616,8 @@ export function AdminUsersPage(): React.JSX.Element {
                           u.role === 'SYSTEM_ADMIN'
                             ? 'admin'
                             : u.role === 'STORE_OWNER'
-                            ? 'owner'
-                            : 'user'
+                              ? 'owner'
+                              : 'user'
                         }`}
                       >
                         {u.role.replace('_', ' ').toLowerCase()}
@@ -630,11 +646,7 @@ export function AdminUsersPage(): React.JSX.Element {
           <div className="modal-box" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <h2 className="modal-title">Create User Account</h2>
-              <button
-                type="button"
-                className="close-btn"
-                onClick={() => setShowCreateModal(false)}
-              >
+              <button type="button" className="close-btn" onClick={() => setShowCreateModal(false)}>
                 ×
               </button>
             </div>
@@ -714,9 +726,7 @@ export function AdminUsersPage(): React.JSX.Element {
                   id="create-user-role"
                   className="form-select"
                   value={form.role}
-                  onChange={(e) =>
-                    setForm({ ...form, role: e.target.value as UserRole })
-                  }
+                  onChange={(e) => setForm({ ...form, role: e.target.value as UserRole })}
                 >
                   <option value="NORMAL_USER">Normal User</option>
                   <option value="STORE_OWNER">Store Owner</option>
