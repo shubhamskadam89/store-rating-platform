@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, IsString, MaxLength } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsOptional, IsString, IsUUID, MaxLength } from 'class-validator';
 
 export class CreateStoreDto {
   @IsString()
@@ -12,4 +12,8 @@ export class CreateStoreDto {
   @IsNotEmpty()
   @MaxLength(400)
   address!: string;
+
+  @IsOptional()
+  @IsUUID()
+  ownerId?: string;
 }
